@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Gestión integral de tu Huerto Digital" />
+    <meta name="keywords" content="Huerto, Cultivos, Fruta, Verdura" />
+    <meta name="author" content="Jordi Cortada Ballester" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Werto: Tu Huerto Digital</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="index_style.css" />
+  </head>
+  <body>
+    <main>
+      <!-- Sección principal que contiene el formulario para configurar la parcela -->
+      <div id="formularioParcela">
+        <header>
+          <img src="LOGO.svg" alt="Werto" width="200" height="45" />
+        </header>
+        <h1>¿Que cultivamos hoy?</h1>
+        <!-- El evento que se ejecuta al enviar este formulario realiza una comprobación de los campos,
+            aunque no es estrictamente necesario porque muchos campos son requeridos -->
+        <form
+          id="formularioWerto"
+          name="myForm"
+          onsubmit="validateForm(event)"
+          method="GET"
+          aria-labelledby="formulario-titulo"
+        >
+          <fieldset>
+            <legend>Especifica las características de tu parcela</legend>
+            <br />
+            <!-- Por cada entrada del formulario se ejecuta un script que modifica el mensaje
+                    que aparece en la guía lateral, siguiendo así los pasos del usuario de forma visual -->
+            <label for="pname">Nombre de la Parcela:</label>
+            <input
+              type="text"
+              id="pname"
+              name="pname"
+              required
+              onchange="guiaFormularioUno()"
+              onfocus="guiaFormularioUno()"
+            />
+            <br /><br />
+
+            <label for="anchoParcela">Ancho de la Parcela: </label>
+            <input
+              type="number"
+              id="anchoParcela"
+              name="anchoParcela"
+              min="1"
+              max="5"
+              placeholder="1"
+              required
+              onchange="guiaFormularioDos()"
+              onfocus="guiaFormularioDos()"
+            />
+            <br /><br />
+
+            <label for="altoParcela">Alto de la Parcela: </label>
+            <input
+              type="number"
+              id="altoParcela"
+              name="altoParcela"
+              min="1"
+              max="5"
+              placeholder="1"
+              required
+              onchange="guiaFormularioTres()"
+              onfocus="guiaFormularioTres()"
+            />
+            <br /><br />
+
+            <label for="orientacionParcela">Orientación de la Parcela: </label>
+            <select
+              type="text"
+              name="orientacionParcela"
+              id="orientacionParcela"
+              onchange="guiaFormularioCuatro()"
+              onfocus="guiaFormularioCuatro()"
+            >
+              <option value="Norte">Norte</option>
+              <option value="Sur">Sur</option>
+              <option value="Este">Este</option>
+              <option value="Oeste">Oeste</option>
+            </select>
+            <br /><br />
+
+            <label for="phParcela">Ph general del sustrato: </label>
+            <input
+              type="number"
+              id="phParcela"
+              name="phParcela"
+              step=".1"
+              min="4.5"
+              max="8"
+              placeholder="6.5"
+              onfocus="guiaFormularioCinco()"
+              onchange="guiaPhSustrato(), guiaFormularioCinco()"
+            />
+            <span
+              id="guiaPhComplementaria"
+              style="display: inline-block; margin-left: 10px; color: #555"
+            ></span>
+            <br /><br />
+
+            <label for="tipoDeTerreno">Tipo de terreno: </label>
+            <select
+              name="tipoDeTerreno"
+              id="tipoDeTerreno"
+              onfocus="guiaFormularioSeis()"
+            >
+              <option value="Arcilloso">Arcilloso</option>
+              <option value="Calizo">Calizo</option>
+              <option value="Limoso">Limoso</option>
+              <option value="Arenoso">Arenoso</option>
+              <option value="Franco">Franco</option>
+              <option value="Salino">Salino</option>
+            </select>
+            <br /><br />
+          </fieldset>
+          <br />
+          <input id="submit" type="submit" value="Cultivar" />
+        </form>
+
+        <footer>
+          <p>Creado por Jordi Cortada Ballester</p>
+        </footer>
+      </div>
+
+      <!-- Sección lateral donde se muestra la guía -->
+      <aside id="guia_formulario">
+        <div id="contenedor-guia-formulario">
+          <!-- El texto y la imagen que aparecen en la guía lateral cambian según el usuario
+                    avanza por el formulario mediante una serie de eventos en "eventos_guia_formularios.js" -->
+          <img id="imagen-guia-formulario" src="./images/guia/guia01.png" />
+          <p id="texto-guia-formulario">
+            ¡Rellena el formulario para poder configurar tu parcela y configurar
+            la distribución de tus cultivos!
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <!-- SECCIÓN PARA CARGAR LOS SCRIPTS -->
+    <script src="script_introducir_datos.js"></script>
+    <script src="script_eventos_guia_formulario.js"></script>
+  </body>
+</html>

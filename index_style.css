@@ -1,0 +1,453 @@
+/* Hoja de estilos del formulario de Werto */
+
+:root {
+  --green: #4fc646;
+  --darkgreen: #378f31;
+  --white: #faf9f6;
+}
+
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: left;
+}
+
+#submit {
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  margin-top: 25px;
+  color: var(--white);
+  background-color: var(--green);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+#submit:hover {
+  background-color: var(--darkgreen);
+  color: var(--white);
+}
+
+/* Dispositivos muy pequeños ---------------------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 600px) {
+  body {
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--white);
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--green);
+    color: var(--white);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 18pt;
+  }
+
+  #formularioParcela {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 150px;
+  }
+
+  form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #guia_formulario {
+    width: 100%;
+    background-color: var(--green);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+
+  #contenedor-guia-formulario {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 90%;
+    font-size: 20px;
+  }
+
+  aside {
+    display: flex;
+    margin: 0;
+    height: 50vh;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  #imagen-guia-formulario {
+    width: 90%;
+  }
+}
+
+/* Dispositivos pequeños ---------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 600px) {
+  body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--white);
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--green);
+    color: var(--white);
+    text-align: center;
+  }
+
+  #formularioParcela {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 150px;
+  }
+
+  form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #guia_formulario {
+    width: 100%;
+    background-color: var(--green);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+
+  #contenedor-guia-formulario {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 90%;
+    font-size: 20px;
+  }
+
+  aside {
+    display: flex;
+    margin: 0;
+    height: 50vh;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  #imagen-guia-formulario {
+    width: 65%;
+  }
+}
+
+/* Dispositivos medianos  ---------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 768px) {
+  body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--white);
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--green);
+    color: var(--white);
+    text-align: center;
+  }
+
+  #formularioParcela {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 150px;
+  }
+
+  #guia_formulario {
+    width: 100%;
+    background-color: var(--green);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+
+  #contenedor-guia-formulario {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 90%;
+    font-size: 20px;
+  }
+
+  #submit {
+    cursor: pointer;
+  }
+
+  aside {
+    display: flex;
+    margin: 0;
+    height: 50vh;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  #imagen-guia-formulario {
+    width: 55%;
+  }
+}
+
+/* Dispositivos grandes  ---------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 992px) {
+  body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: var(--white);
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  footer {
+    color: black;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 50%;
+    padding-bottom: 50px;
+    background-color: transparent;
+  }
+
+  #formularioParcela {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  #guia_formulario {
+    width: 50%;
+    background-color: var(--green);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #contenedor-guia-formulario {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 90%;
+    font-size: 20px;
+  }
+
+  #submit {
+    cursor: pointer;
+  }
+
+  aside {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    width: 25%;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  #imagen-guia-formulario {
+    width: 100%;
+  }
+}
+
+/* Dispositivos muy grandes  ---------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 1200px) {
+  body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: var(--white);
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  footer {
+    text-align: center;
+    position: fixed;
+    color: black;
+    bottom: 0;
+    width: 50%;
+    padding-bottom: 50px;
+    background-color: transparent;
+  }
+
+  #formularioParcela {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  #guia_formulario {
+    width: 50%;
+    background-color: var(--green);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #contenedor-guia-formulario {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 90%;
+    font-size: 20px;
+  }
+
+  #submit {
+    cursor: pointer;
+  }
+
+  aside {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    width: 25%;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  #imagen-guia-formulario {
+    width: 100%;
+  }
+}

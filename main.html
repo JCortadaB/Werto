@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Gestión integral de tu Huerto digital">
+        <meta name="keywords" content="Huerto, Cultivos, Fruta, Verdura">
+        <meta name="author" content="Jordi Cortada">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Huerto Digital</title>
+        <link rel="icon" type="image/x-icon" href="./favicon.ico">
+        <link rel="stylesheet" href="main_style.css">
+        <!-- Stylesheet que se utiliza únicamente para los iconos que se han aprovechado de Google Fonts (https://fonts.google.com/icons)  -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- Librería Konva (https://konvajs.org/) -->
+        <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+    </head>
+    <body>
+
+        <main>
+
+            <aside>
+
+                <header>
+                    <img id="logo" src="LOGO.svg" alt="Werto" width="200" height="45"/>
+                </header>
+
+                <div id="bloque-filtros">
+                    <div id="botones-elementos">
+                        <button class="boton-ambito">
+                            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+                            <p id="texto_botones_organizadores">
+                                <span id="icono-boton-ambito" class="material-symbols-outlined">potted_plant</span>
+                                CULTIVOS</p>
+                        </button>
+                        <button class="boton-ambito">
+                            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+                            <p id="texto_botones_organizadores">
+                                <span id="icono-boton-ambito" class="material-symbols-outlined">water_drop</span>
+                                RIEGO</p>
+                        </button>
+                        <button class="boton-ambito">
+                            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+                            <p id="texto_botones_organizadores">
+                                <span id="icono-boton-ambito" class="material-symbols-outlined">home</span>
+                                ESTRUCTURAS</p>
+                        </button>
+                    </div>
+                </div>
+                
+
+                </div>
+                <div id="gestor-filtrador-cultivos">
+
+                    <div class="tab">
+                        <!-- Los tabs es donde se encuentra el listado de cultivos. Una de las pestañas muestra
+                        todos los cultivos y la otra solo aquellos recomendados -->
+                        <button class="tablinks" onclick="openTab(event, 'TodosLosCultivos')" id="defaultOpen">Todos los Cultivos</button>
+                        <button class="tablinks" onclick="openTab(event, 'CultivosRecomendados')">Cultivos recomendados</button>
+
+                        <div id="TodosLosCultivos" class="tabcontent">
+                            <input type="text" id="filtro-cultivos" onkeyup="filtrarCultivos()" placeholder="Buscar cultivos">
+                                <ul id="listado-cultivos"></ul>
+                            </div>
+
+                            <div id="CultivosRecomendados" class="tabcontent">
+                                <input type="text" id="filtro-cultivos" onkeyup="filtrarCultivos()" placeholder="Buscar cultivos">
+                                    <ul id="listado-cultivos-filtrados"></ul>
+                                </div>
+
+                    </div>
+                 </div>
+
+            </aside>
+
+
+            <div id="configuracion-parcela">
+                <!-- Sección donde se muestran los datos introducidos por el usuario
+                Se extraen desde el localStorage -->
+                <div id="info-parcela">
+                    <p><strong>Nombre Parcela:</strong><br><span id="nombre-parcela"></span></p>
+                    <p><strong>Ancho:</strong><br><span id="ancho-parcela"></span></p>
+                    <p><strong>Alto:</strong><br><span id="alto-parcela"></span></p>
+                    <p><strong>Orientación:</strong><br><span id="orientacion-parcela"></span></p>
+                    <p><strong>Ph general:</strong><br><span id="ph-parcela"></span></p>
+                    <p><strong>Tipo de terreno:</strong><br><span id="tipo-de-terreno-parcela"></span></p>
+                </div>
+                
+                <div id="herramientas-parcela">
+                    
+                    <button id="visibilidadGuias" onclick="visibilidadGuias()">
+                        <!-- Este botón permite mostrar u ocultar las guías que se dibujan en el canvas -->
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+                    <span class="material-symbols-outlined">grid_3x3</span>
+                        <p id="textoBotonVisibilidadGuias">Ocultar guias</p>
+                    </button>
+
+                    <button id="save">
+                        <!-- Este botón permite descargar la composición del cultivo en formato pdf
+                        junto a fichas individuales de cada cultivo. Más información en "script_exportar_a_pdf" -->
+                        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+                        <span class="material-symbols-outlined">download</span>
+                        <p>Exportar a pdf</p>
+                    </button>
+
+                        <a href="index.html">
+                        <button id="reconfigurar-parcela">
+                            <!-- Este botón devuelve al usuario al formulario para que pueda reconfigurar la parcela.
+                            Importante: Al retornar a la otra página, la composición generada en el canvas desaparece -->
+                            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+                            <span class="material-symbols-outlined">restart_alt</span>
+                            <p>Reconfigurar</p>
+                        </button>
+                    </a>
+
+                </div>
+
+            <div id="dibujo-parcela"></div>
+            <div id="menu">
+                <div>
+                    <!-- Este botón se activa mediante el click derecho del ratón al pulsar sobre los cultivos en el canvas
+                    permitiendo eliminar el cultivo sobre el que se ha hecho click -->
+                  <button id="delete-button">Eliminar</button>
+                </div>
+              </div>
+                <script src="script_dibujar_parcela.js"></script>
+            </div>
+            
+        </main>
+        <footer>
+            <p>Creado por Jordi Cortada Ballester</p>
+        </footer>
+
+
+        <!-- SECCIÓN PARA CARGAR LOS SCRIPTS -->
+        <script src="script_cargar_base_datos.js"></script>
+        <script src="script_propiedades_parcela.js"></script>
+        <!-- jspdf es la librería que permite exportar el canvas y las diferentes fichas de los cultivos -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+        integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+        crossorigin="anonymous"></script>
+        <script src="script_exportar_a_pdf.js"></script>
+    </body>
+</html> 

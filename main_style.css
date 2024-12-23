@@ -1,0 +1,338 @@
+/* Hoja de estilos de la sección de manipulación de la parcela de Werto */
+
+:root {
+  --green: #4fc646;
+  --darkgreen: #378f31;
+  --white: #faf9f6;
+}
+
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #faf9f6;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  margin-bottom: 40px;
+}
+
+#logo {
+  width: 95%;
+}
+
+aside {
+  display: flex;
+  margin: 3vh auto;
+  height: 100vh;
+  width: 25%;
+  flex-direction: column;
+  padding: 10px;
+}
+
+#gestor-filtrador-cultivos {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+#botones-elementos {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#botones-elementos button {
+  flex-grow: 1;
+  max-width: 150px;
+  margin: 5px;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.boton-ambito {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+}
+
+#icono-boton-ambito {
+  font-size: 20px;
+}
+
+#texto_botones_organizadores {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#container {
+  display: flex;
+  border: 1px solid black;
+  height: 85%;
+  flex-direction: column;
+  overflow: auto;
+}
+
+#configuracion-parcela {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 3vh 1vh;
+  height: 94vh;
+  width: 75%;
+  padding: 10px;
+}
+
+#info-parcela {
+  display: flex;
+  border: 1px solid black;
+  margin: 0;
+  width: 100%;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-evenly;
+}
+
+#herramientas-parcela {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+}
+
+#herramientas-parcela button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 10px 10px 10px;
+  height: 40px;
+  width: 125px;
+}
+
+#dibujo-parcela {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  height: calc(100% - 12vh - 14px);
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+ul {
+  margin: 0;
+  overflow-y: auto;
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#listado-cultivos li img,
+#listado-cultivos-filtrados li img {
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+  cursor: move;
+}
+
+h4 {
+  margin-left: 5px;
+}
+
+#filtro-cultivos {
+  /* Imagen para la lupa que se utiliza en el buscador de cultivos. Fuente: W3Schools */
+  background-image: url("https://www.w3schools.com/css/searchicon.png");
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+#bloque-filtros {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#menu {
+  display: none;
+  position: absolute;
+  width: 60px;
+  background-color: white;
+  box-shadow: 0 0 5px grey;
+  border-radius: 5px;
+}
+
+#menu button {
+  width: 100%;
+  background-color: white;
+  border: none;
+  margin: 0;
+  padding: 10px 10px 10px 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#menu button:hover {
+  background-color: lightgray;
+}
+
+#herramientas-parcela button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+#reconfigurar-parcela {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#reconfigurar-parcela:hover {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+  color: red;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--green);
+  color: var(--white);
+  text-align: center;
+}
+
+/* TABS CULTIVOS ----------------------------------------*/
+
+/* Código reautilizado de W3Schools - Tabs (https://www.w3schools.com/howto/howto_js_tabs.asp) */
+.tab {
+  overflow-x: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  height: calc(100% - 12vh - 100px);
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* Dispositivos muy pequeños ---------------------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 600px) {
+  #botones-elementos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
+/* Dispositivos pequeños ---------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 600px) {
+  #botones-elementos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
+/* Dispositivos medianos  ---------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 768px) {
+  #botones-elementos button {
+    flex-grow: 1;
+    max-width: 100%;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  #botones-elementos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
+/* Dispositivos grandes  ---------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 992px) {
+  #botones-elementos {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+}
